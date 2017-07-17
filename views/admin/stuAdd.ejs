@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+请上传excle文件
+(id name  classid 学号)
+<form action="/stu/upload" method="post" enctype="multipart/form-data">
+    <select name="cid" id="">
+        <option>请选择班号</option>
+        <%for(var i=0;i<result.length;i++){%>
+        <option value="<%=result[i].id%>"><%=result[i].name%></option>
+        <%}%>
+    </select>
+    <input type="file" name="file"><br>
+    <input type="submit" value="上传">
+</form>
+单数据上传
+<form action="">
+
+
+    <select name="cid" id="">
+        <option>请选择班号</option>
+        <%for(var i=0;i<result.length;i++){%>
+        <option value="<%=result[i].id%>"><%=result[i].name%></option>
+        <%}%>
+    </select>
+    学号： <input type="text"><br>
+    名字： <input type="text"><br>
+    密码： <input type="text"><br>
+    <input type="submit" values="提交">
+</form>
+</body>
+</html>

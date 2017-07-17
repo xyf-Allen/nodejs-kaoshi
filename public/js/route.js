@@ -1,0 +1,15 @@
+angular.module("route",["ngRoute"])
+.config(["$routeProvider",function($routeProvider){
+    $routeProvider.when("/",{
+        templateUrl:"/tpl/index.html",
+        controller:"index"
+    }).when("/login",{
+        templateUrl:"/tpl/login.html"
+    }).when("/login/:id",{
+        templateUrl:"/tpl/stulogin.html",
+        controller:"login"
+    }).when("/teach",{
+            templateUrl:"/tpl/indexTeach.html",
+            controller:"indexTeach"
+        })
+}])

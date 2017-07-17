@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  请导入excle表格<br>
+
+  <!--
+    1.  姓名
+    2.  工号
+    3.  方向
+
+    4.  阶段
+    5.  班级
+
+
+
+
+  -->
+<form action="/teach/upload" method="post" enctype="multipart/form-data">
+    所带方向
+    <select name="fid" id="">
+
+        <option>选择方向</option>
+
+        <%for(var i=0;i<fangxiang.length;i++){%>
+        <option value="<%=fangxiang[i].id%>">
+            <%=fangxiang[i].name%>
+        </option>
+        <%}%>
+    </select><br>
+
+    所带阶段
+    <select name="jid" id="">
+        <option>选择阶段</option>
+        <%for(var i=0;i<jieduan.length;i++){%>
+        <option value="<%=jieduan[i].id%>">
+            <%=jieduan[i].name%>
+        </option>
+        <%}%>
+    </select><br>
+
+    所带班级
+    <select name="cid" id="">
+        <option>选择班级</option>
+        <%for(var i=0;i<classes.length;i++){%>
+        <option value="<%=classes[i].id%>">
+            <%=classes[i].name%>
+        </option>
+        <%}%>
+    </select><br>
+
+    <input type="file" name="file"><br>
+    <input type="submit" value="上传">
+</form>
+
+</body>
+</html>

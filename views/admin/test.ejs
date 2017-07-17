@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/test/testAddCon">
+          选择方向:
+        <select name="fid" id="">
+            <option>=选择方向=</option>
+            <%for(var i=0;i<fangxiang.length;i++){%>
+            <option value="<%=fangxiang[i].id%>"><%=fangxiang[i].name%></option>
+            <%}%>
+        </select><br>
+
+        选择阶段:
+        <select name="jid" id="">
+            <option>=选择阶段=</option>
+
+            <%for(var i=0;i<jieduan.length;i++){%>
+            <option value="<%=jieduan[i].id%>"><%=jieduan[i].name%></option>
+            <%}%>
+        </select><br>
+
+        选择类型:
+        <select name="tid" id="">
+            <option>=选择类型=</option>
+            <%for(var i=0;i<type.length;i++){%>
+            <option value="<%=type[i].id%>"><%=type[i].name%></option>
+            <%}%>
+
+        </select><br>
+        
+        输入题目:
+        <input type="text" name="title" size="100"><br>
+        
+        输入选项:
+
+        <textarea name="options" id="" cols="30" rows="10"></textarea><br>
+
+        输入答案：
+        <textarea name="daan" id="" cols="30" rows="10"></textarea><br>
+
+        <input type="submit" values="提交">
+
+    </form>
+</body>
+</html>
