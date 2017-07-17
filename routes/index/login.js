@@ -17,6 +17,8 @@ router.get('/stucheck',function(req,res,next){
                     if(result[i].spass==md5(pass)){
                             flag=false;
                             res.cookie("indexLoginStu","yes");
+                            res.cookie("stuName",name);
+                            res.cookie("stuId",result[i].sid);
                         res.send("ok");
                             break;
 
@@ -50,6 +52,9 @@ router.get('/teachcheck',function(req,res,next){
                     if(result[i].pass==md5(pass)){
                         flag=false;
                         res.cookie("indexLoginTeach","yes");
+                        res.cookie("teachName",name);
+                        console.log(name);
+                        res.cookie("teachId",result[i].tid);
                         res.send("ok");
                         break;
 
@@ -63,6 +68,19 @@ router.get('/teachcheck',function(req,res,next){
             }
         }
     })
+})
+
+router.get("/stulogout",function(req,res){
+    res.clearCookie("stuName");
+    res.clearCookie("stuId");
+    res.clearCookie("indexLoginStu");
+    res.redirect("/")
+})
+router.get("/teachlogout",function(req,res){
+    res.clearCookie("teachName");
+    res.clearCookie("teachId");
+    res.clearCookie("indexLoginTeach");
+    res.redirect("/")
 })
 
 

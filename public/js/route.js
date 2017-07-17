@@ -11,5 +11,14 @@ angular.module("route",["ngRoute"])
     }).when("/teach",{
             templateUrl:"/tpl/indexTeach.html",
             controller:"indexTeach"
-        })
+    }).when("/zuti",{
+        templateUrl:"/tpl/zuti.html",
+        controller:"zuti"
+    }).when("/tests",{
+        templateUrl:"/tpl/test.html",
+        controller:"test"
+    }).when("/tests/:id",{
+        templateUrl:"/tpl/testList.html",
+        controller:"testList"
+    })
 }])

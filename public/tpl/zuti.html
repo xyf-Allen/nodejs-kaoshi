@@ -1,0 +1,70 @@
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#!/teach"></a>
+    <h1 class="mui-title">
+        组题页面
+    </h1>
+    <span class="mui-pull-right">{{nums}}</span>
+</header>
+
+<div class="mui-content">
+    <select ng-model="cid" ng-options="item.cid as item.cname for item in data">
+        <option value="">选择班级</option>
+    </select>
+
+    <select ng-model="fid" ng-options="item.fid as item.fname for item in data">
+        <option value="">选择方向</option>
+    </select>
+
+    <select ng-model="jid" ng-options="item.jid as item.jname for item in data">
+        <option value="">选择阶段</option>
+    </select>
+
+    <select ng-model="tid" ng-options="item.id as item.name for item in types">
+        <option value="">
+            选择类型
+        </option>
+    </select>
+
+   开始时间：<input type="datetime-local" ng-model="begin">
+
+    结束时间:<input type="datetime-local" ng-model="end">
+
+    <button id='login' class="mui-btn mui-btn-block mui-btn-primary" ng-click="start()">开始组题</button>
+
+
+
+    <div ng-repeat="item in ti track by item.id">
+        <input type="checkbox" ng-click="selectTis($event,item.id)" ng-checked="tis[item.id]">
+
+        题目 <span>{{item.title}}</span>
+          <div>
+              <span ng-repeat="item1 in item.options">
+                  {{$index+1}} {{item1}}
+              </span>
+          </div>
+
+        学生答题
+
+        分值:
+        1:<input type="radio" value="1" ng-checked="1==tis[item.id]['score']" name="score{{$index}}" ng-click="selectScore(item.id,1)">
+
+        2:<input type="radio" value="2" ng-checked="2==tis[item.id]['score']" name="score{{$index}}" ng-click="selectScore(item.id,2)">
+
+        3:<input type="radio" value="3" ng-checked="3==tis[item.id]['score']" name="score{{$index}}" ng-click="selectScore(item.id,3)">
+
+        4:<input type="radio" value="4" ng-checked="4==tis[item.id]['score']" name="score{{$index}}" ng-click="selectScore(item.id,4)">
+
+        5:<input type="radio" value="5" ng-checked="5==tis[item.id]['score']" name="score{{$index}}" ng-click="selectScore(item.id,5)">
+
+    </div>
+
+    /*
+
+方向  阶段    题目       班级   老师  开始  结束
+ 1     2   1,5|2,4
+    */
+
+    <button  class="mui-btn mui-btn-block mui-btn-primary" ng-click="submit()">确定</button>
+
+</div>
+

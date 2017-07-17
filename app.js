@@ -40,6 +40,8 @@ var stu = require('./routes/stu');
 var teach = require('./routes/teach');
 var indexLogin = require('./routes/index/login');
 var statics = require('./routes/static');
+var select = require('./routes/index/select');
+var insert = require('./routes/index/insert');
 
 
 //模块化
@@ -54,8 +56,10 @@ app.use('/type', type);
 app.use('/test', test);
 app.use('/stu', stu);
 app.use('/teach', teach);
-app.use('/indexLogin',indexLogin );
+app.use('/indexLogin',indexLogin);
 app.use('/tpl',statics);
+app.use('/select',select);
+app.use('/insert',insert);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

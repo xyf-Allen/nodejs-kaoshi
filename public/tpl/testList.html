@@ -1,0 +1,35 @@
+<header class="mui-bar mui-bar-nav">
+
+    <h1 class="mui-title">
+        开始考试
+    </h1>
+
+</header>
+
+<div class="mui-content">
+    <form action="/insert/finish" method="get">
+        <input type="hidden" name="zid" value="{{zid}}">
+    <div>
+        倒计时：
+    </div>
+
+    单选题:
+    <div class="single" ng-repeat="item in data.single">
+        <h4>{{$index+1}}. {{item.title}} ({{item.score}})</h4>
+        <li ng-repeat="item1 in item.options"><input type="radio" name="single{{item.id}}" value="{{$index+1}}"> {{item1}}</li>
+        <input type="hidden" name="singleFile[]" value="{{item.id}}">
+        <input type="hidden" name="singleScore[]" value="{{item.score}}">
+    </div>
+
+    多选：
+    <div class="more" ng-repeat="item in data.more">
+        <h4>{{$index+1}}. {{item.title}} ({{item.score}})</h4>
+        <li ng-repeat="item1 in item.options"><input type="checkbox" name="more{{item.id}}[]" value="{{$index+1}}"> {{item1}}
+        </li>
+        <input type="hidden" name="moreFile[]" value="{{item.id}}">
+        <input type="hidden" name="moreScore[]" value="{{item.score}}">
+    </div>
+
+    <button id='login' class="mui-btn mui-btn-block mui-btn-primary" ng-click="finish()">答题完毕</button>
+    </form>
+</div>
